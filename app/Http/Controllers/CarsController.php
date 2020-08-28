@@ -15,7 +15,8 @@ class CarsController extends Controller
      */
     public function index()
     {
-        //
+        $cars=Car::all();
+        return view('cars.index', compact('cars'));
     }
 
   /**
@@ -84,7 +85,8 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car= Car::find($id);
+        return view('cars.edit', compact('car'));
     }
 
      /**
@@ -109,7 +111,7 @@ class CarsController extends Controller
             'img'=>'required',
 
         ]);*/
-        $car=Car::find($id);
+        $car = Car::find($id);
         $car->type= $request->get('type');
             $car->brand = $request->get('brand');
             $car->model = $request->get('model');
@@ -133,7 +135,6 @@ public function destroy($id)
     {
         $car = Car::find($id);
         $car->delete();
-
         return redirect('/car')->with('success', 'Car deleted!');
     }
 }
