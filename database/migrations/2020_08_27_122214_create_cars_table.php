@@ -18,6 +18,7 @@ class CreateCarsTable extends Migration
             $table->string('type');
             $table->string('brand');
             $table->string('model');
+            $table->string('color');
             $table->date('available_at');
             $table->string('fuel');
             $table->integer('year');
