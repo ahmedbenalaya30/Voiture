@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('car', 'CarsController');
+Route::resource('user','UsersController');
 

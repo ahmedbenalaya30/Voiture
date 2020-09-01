@@ -1,5 +1,5 @@
-@extends('base')
 
+@extends('base')
 @section('main')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
@@ -16,7 +16,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('car.store') }}">
+      <form method="POST" action="{{ route('car.store') }}" enctype="multipart/form-data" >
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">    
               <label for="type">type:</label>
@@ -59,10 +59,11 @@
               <label for="pricePerDay">pricePerDay:</label>
               <input type="number" class="form-control" name="pricePerDay"/>
           </div>     
-          <div class="form-group">
-              <label for="img">Car image:</label>
-              <input type="text" class="form-control" name="img"/>
-          </div>                     
+        
+  <div class="form-group">
+        <label for="img">Photo</label>
+        <input type="file" id="img" name='img' class="promo-img-path" accept="image/*" />
+        </div>                 
           <button type="submit" class="btn btn-primary-outline">Add Car</button>
       </form>
   </div>

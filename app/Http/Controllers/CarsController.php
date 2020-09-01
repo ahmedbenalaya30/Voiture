@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Car;
 
 class CarsController extends Controller
@@ -40,7 +43,7 @@ class CarsController extends Controller
             'img'=>'required',
 
         ]);*/
-
+      
         $car = new Car([
             'type' => $request->get('type'),
             'brand' => $request->get('brand'),
@@ -51,8 +54,12 @@ class CarsController extends Controller
             'year' => $request->get('year'),
             'capacity' => $request->get('capacity'),
             'pricePerDay' => $request->get('pricePerDay'),
-            'img' => $request->get('img')
         ]);
+        $img = Input::file('img');
+            $fileName = Str::random(30).'.'.$img->guessClientExtension();
+            $img->move(public_path('images'), $fileName);
+            
+        $car->img=$fileName;
         $car->save();
         return redirect('/car')->with('success', 'Car saved!');
     }
