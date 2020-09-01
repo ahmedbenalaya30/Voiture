@@ -117,7 +117,15 @@ class CarsController extends Controller
             'pricePerDay'=>'required',
             'img'=>'required',
 
-        ]);*/
+        ]);*/ 
+        $fileName = $request->hidden_image;
+        $img = Input::file('img');
+        if ($img !='')
+        {
+            $fileName = Str::random(30).'.'.$img->guessClientExtension();
+            $img->move(public_path('images'), $fileName);
+        }
+   
         $car = Car::find($id);
         $car->type= $request->get('type');
             $car->brand = $request->get('brand');
@@ -128,7 +136,7 @@ class CarsController extends Controller
             $car->year = $request->get('year');
             $car->capacity = $request->get('capacity');
             $car->pricePerDay = $request->get('pricePerDay');
-            $car->img = $request->get('img');
+            $car->img=$fileName;
             $car->save();
             return redirect('/car')->with('success', 'Car updated!');
 }

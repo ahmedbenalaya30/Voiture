@@ -14,7 +14,7 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('car.update', $car->id) }}">
+        <form method="post" action="{{ route('car.update', $car->id) }}" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="_method" value="patch" />
             <div class="form-group">
@@ -59,7 +59,11 @@
             </div>
             <div class="form-group">
                 <label for="img">IMAGE:</label>
-                <input type="text" class="form-control" name="img" value={{ $car->img }} />
+                <div class="col-md-8">
+                <input type="file" id="img" name='img' class="promo-img-path" accept="image/*" />
+              <img src="{{ URL::to('/') }}/images/{{ $car->img }}" class="img-thumbnail" width="100" />
+                        <input type="hidden" name="hidden_image" value="{{ $car->img }}" />
+       </div>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
