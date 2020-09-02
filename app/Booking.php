@@ -9,7 +9,7 @@ class Booking extends Model
     protected $fillable = array(
         'pick_up_date',
         'drop_off_date',
-        'isConfirmed',
+        'status',
         'isPaid',
     );
     public static $rules = array(

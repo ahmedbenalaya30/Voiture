@@ -21,7 +21,7 @@ class CreateBookingsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('pick_up_date');
             $table->date('drop_off_date');
-            $table->boolean('is_confirmed')->default(0);
+            $table->enum('status', array('Pending', 'Cancelled', 'Confirmed'))->default('Pending');
             $table->boolean('is_paid')->default(0);
             $table->timestamps();
         });
