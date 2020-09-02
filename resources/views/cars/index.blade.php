@@ -35,7 +35,7 @@
             <td>{{$car->year}}</td>
             <td>{{$car->capacity}}</td>
             <td>{{$car->pricePerDay}}</td>
-            <td><img src="{{ URL::to('/') }}/images/{{ $car->img }}" class="img-thumbnail" width="55"  /></td>
+            <td><img src="{{ URL::to('/') }}/images/{{ $car->img }}" class="img-thumbnail" width="75"  /></td>
             <td>
                 <a href="{{ route('car.edit',$car->id)}}" class="btn btn-primary">Edit</a>
             </td>
