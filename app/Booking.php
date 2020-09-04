@@ -19,11 +19,11 @@ class Booking extends Model
 		'drop_off_date'=>'required|date|date_format:"Y-m-d"|end_time:pick_up_date'
 	);
     public function car() {
-		return $this->belongsTo('Car');
+		return $this->belongsTo('App\Car');
 	}
 
 	public function user() {
-		return $this->belongsTo('User');
+		return $this->belongsTo('App\User');
 	}
 
 }

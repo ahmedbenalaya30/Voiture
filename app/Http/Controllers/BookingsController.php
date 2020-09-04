@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Booking;
+use App\User;
+use App\Car;
 
 
 class BookingsController extends Controller
@@ -40,16 +42,29 @@ class BookingsController extends Controller
             'img'=>'required',
 
         ]);*/
-      
+        if ($request->get('pick_up_date') < $request->get('drop_off_date'))
+        {
+        $car=new Car;
+        $car= Car::find($request->get('car_id'));
+        $user=new User;
+        $user=User::find($request->get('user_id'));
+
         $booking = new Booking([
-            'user_id'=> $request->get('user_id'),
-            'car_id'=> $request->get('car_id'),
             'pick_up_date' => $request->get('pick_up_date'),
             'drop_off_date' => $request->get('drop_off_date'),
-            //'status' => $request->get('status'),
+            'status' => $request->get('status'),
         ]);
+        if (isset($_POST['isPaid']))
+            $booking->is_paid=true;
+
+        $booking->user()->associate($user);
+        $booking->car()->associate($car);
         $booking->save();
-        return redirect('/booking')->with('success', 'booking saved!');
+        return redirect('/booking')->with('success', 'booking saved!');}
+        else 
+        return back()->withErrors(['Verify the date']);
+
+
     }
     /**
      * Show the form for creating a new resource.
