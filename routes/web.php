@@ -21,5 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('car', 'CarsController');
 Route::resource('user','UsersController');
 Route::resource('booking', 'bookingsController');
+Route::any('/usersearch','UsersController@search')->name('search');
+
+
 
 

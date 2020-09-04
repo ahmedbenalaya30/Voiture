@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Booking;
 use App\User;
 use App\Car;
+use Auth;
 
 
 class BookingsController extends Controller
@@ -129,4 +130,5 @@ public function destroy($id)
         $booking->delete();
         return redirect('/booking')->with('success', 'booking deleted!');
     }
+     
 }

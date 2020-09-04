@@ -20,6 +20,19 @@ class UsersController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $users = User::where('name', 'LIKE', '%'.$search.'%')->orderBy('name')->paginate(10);
+        return view('usersearch', compact('users'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
