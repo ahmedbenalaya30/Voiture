@@ -25,3 +25,6 @@
 <script> $(document).ready( function () {
     $('#carsTable').DataTable();
 } ); </script>
+<script> $(document).ready( function () {
+    $('#bookingsTable').DataTable();
+} ); </script>

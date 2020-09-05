@@ -7,17 +7,18 @@
 <div class="row">
 <div class="col-sm-12">
     <h1 class="display-3">Cars</h1>
-  <table class="table table-striped">
+  <table id="bookingsTable"class="table table-striped">
     <thead>
         <tr>
-          <td>ID</td>
-          <td>USER Name</td>
-          <td>CAR</td>
-          <td>PICK_UP_DATE</td>
-          <td>DROP_OFF_DATE</td>
-          <td>STATUS</td>
-          <td>IS PAID</td>
-          <td colspan = 2>Actions</td>
+          <th>ID</th>
+          <th>USER Name</th>
+          <th>CAR</th>
+          <th>PICK_UP_DATE</th>
+          <th>DROP_OFF_DATE</th>
+          <th>STATUS</th>
+          <th>IS PAID</th>
+          <th >EDIT</th>
+          <th>DELETE</th>
         </tr>
     </thead>
     <tbody>
@@ -38,11 +39,7 @@
                 <a href="{{ route('booking.edit',$booking->id)}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
-                <form action="{{ route('booking.destroy', $booking->id)}}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="_method" value="delete" />
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
+            <a href="{{ route('booking.destroy', $booking->id)}}" class="btn btn-primary">DELETE</a>
             </td>
         </tr>
         @endforeach

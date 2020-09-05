@@ -2,7 +2,7 @@
 
 @section('main')
 <div>
-    <a style="margin: 19px;" href="{{ route('car.create')}}" class="btn btn-primary">New contact</a>
+    <a style="margin: 19px;" href="{{ route('car.create')}}" class="btn btn-primary">New car</a>
     </div>  
 <div class="row">
 <div class="col-sm-12">
