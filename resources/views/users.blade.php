@@ -4,21 +4,18 @@
 
 <div class="col-sm-12">
     <h1 class="display-3">users</h1>
-    <form  action="{{ route('search')}}" method="post" class="form-inline md-form mr-auto mb-4">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  <input  name="search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-  <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
-</form>
-  <table class="table table-striped">
+    
+  <table id="myTable" class="display"> 
     <thead>
         <tr>
-          <td>ID</td>
-          <td>NAME</td>
-          <td>EMAIL</td>
-          <td>ADRESS</td>
-          <td>CITY</td>
-          <td>PHONE</td>
-          <td colspan = 2>Actions</td>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>EMAIL</th>
+          <th>ADRESS</th>
+          <th>CITY</th>
+          <th>PHONE</th>
+          <th>EDIT</th>
+          <th >DELETE</th>
         </tr>
     </thead>
     <tbody>
@@ -33,14 +30,17 @@
             <td>
                 <a href="{{ route('user.edit',$user->id)}}" class="btn btn-primary">Edit</a>
             </td>
-            <td>
+            <td>                <a href="{{ route('user.destroy', $user->id)}}" class="btn btn-primary">Delete</a>
+</td>
+          <!--<td>
                 <form action="{{ route('user.destroy', $user->id)}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="_method" value="delete" />
+                   delete aamélha kima el edit moch form w hotou maa el edit 
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
-            </td>
-        </tr>
+            </td> -->
+          </tr>
         @endforeach
     </tbody>
   </table>

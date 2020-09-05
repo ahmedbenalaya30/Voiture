@@ -7,20 +7,21 @@
 <div class="row">
 <div class="col-sm-12">
     <h1 class="display-3">Cars</h1>
-  <table class="table table-striped">
+  <table id="carsTable" class="table table-striped">
     <thead>
         <tr>
-          <td>ID</td>
-          <td>TYPE</td>
-          <td>BRAND</td>
-          <td>MODEL</td>
-          <td>COLOR</td>
-          <td>FUEl</td>
-          <td>YEAR</td>
-          <td>CAPACITY</td>
-          <td>PricePerDay</td>
-          <td>IMAGE</td>
-          <td colspan = 2>Actions</td>
+          <th>ID</th>
+          <th>TYPE</th>
+          <th>BRAND</th>
+          <th>MODEL</th>
+          <th>COLOR</th>
+          <th>FUEl</th>
+          <th>YEAR</th>
+          <th>CAPACITY</th>
+          <th>PricePerDay</th>
+          <th>IMAGE</th>
+          <th>EDIT</th>
+          <th>DELETE</th>
         </tr>
     </thead>
     <tbody>
@@ -40,11 +41,7 @@
                 <a href="{{ route('car.edit',$car->id)}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
-                <form action="{{ route('car.destroy', $car->id)}}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="_method" value="delete" />
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
+            <a href="{{ route('car.destroy', $car->id)}}" class="btn btn-primary">DELETE</a>
             </td>
         </tr>
         @endforeach
