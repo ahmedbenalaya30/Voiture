@@ -1,6 +1,9 @@
 @extends('base')
 @section('main')
 <div class="row">
+<div>
+    <a style="margin: 19px;" href="{{ route('user.create')}}" class="btn btn-primary">New car</a>
+    </div>  
 <div class="col-sm-12">
     <h1 class="display-3">users</h1>
     

@@ -40,7 +40,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+          return view('auth.register');
+
     }
 
     /**
@@ -51,7 +52,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User([
+        'name' => $request->get('name'),
+        'email' => $request->get('email'),
+        'password' => $request->get('password'),
+        'adress' => $request->get('adress'),
+          'city' => $request->get('city'),
+          'phone' => $request->get('phone'),
+            ]);
+            $user->save();
+            return redirect('/user')->with('success', 'user updated!');
     }
 
     /**

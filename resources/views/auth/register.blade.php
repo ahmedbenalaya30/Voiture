@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
   <div class="login-box">
     <h2>Register</h2>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('user.store') }}">
       {{ csrf_field() }}
       <div class="user-box">
         <input type="text" id="text" name="name" value="" required autofocus>
