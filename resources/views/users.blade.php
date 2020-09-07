@@ -1,7 +1,6 @@
 @extends('base')
 @section('main')
 <div class="row">
-
 <div class="col-sm-12">
     <h1 class="display-3">users</h1>
     
@@ -16,6 +15,7 @@
           <th>PHONE</th>
           <th>EDIT</th>
           <th >DELETE</th>
+          <th>Show bookings</th>
         </tr>
     </thead>
     <tbody>
@@ -30,8 +30,8 @@
             <td>
                 <a href="{{ route('user.edit',$user->id)}}" class="btn btn-primary">Edit</a>
             </td>
-            <td>                <a href="{{ route('user.destroy', $user->id)}}" class="btn btn-primary">Delete</a>
-</td>
+            <td>                <a href="{{ route('user.destroy', $user->id)}}" class="btn btn-primary">Delete</a></td>
+<td><a href="{{ route('search', $user->id)}}" class="btn btn-primary">Show</a></td>
           <!--<td>
                 <form action="{{ route('user.destroy', $user->id)}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

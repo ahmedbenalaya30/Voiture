@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Booking;
 
 class UsersController extends Controller
 {
@@ -27,9 +28,9 @@ class UsersController extends Controller
      */
     public function search(Request $request)
     {
-        $search = $request->get('search');
-        $users = User::where('name', 'LIKE', '%'.$search.'%')->orderBy('name')->paginate(10);
-        return view('usersearch', compact('users'));
+       // $search = $request->get('search');
+        $bookings = Booking::where('user_id', $request->id)->get();
+        return view('userBookings', compact('bookings'));
     }
 
     /**
