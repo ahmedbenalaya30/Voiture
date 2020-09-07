@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
   <div class="login-box">
     <h2>Register</h2>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('user.store') }}">
       {{ csrf_field() }}
       <div class="user-box">
         <input type="text" id="text" name="name" value="" required autofocus>
@@ -27,21 +27,8 @@
 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
       </div>
-<div class="user-box">
-<input id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-      </div>
-      <div class="user-box">
-      <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-      <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-      </div>
+    
       <div class="user-box">
       <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') }}" required autofocus>
 

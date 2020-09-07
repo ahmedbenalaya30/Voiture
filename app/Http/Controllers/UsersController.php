@@ -40,7 +40,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-          return view('auth.register');
+          return view('addUser');
 
     }
 
@@ -55,7 +55,7 @@ class UsersController extends Controller
         $user = new User([
         'name' => $request->get('name'),
         'email' => $request->get('email'),
-        'password' => $request->get('password'),
+        'password' => "Client",
         'adress' => $request->get('adress'),
           'city' => $request->get('city'),
           'phone' => $request->get('phone'),
