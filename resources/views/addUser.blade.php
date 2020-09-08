@@ -28,6 +28,18 @@
 
       </div>
 
+      <div class="user-box">
+      <input id="cin" type="number" class="form-control" name="cin" value="{{ old('cin') }}" required>
+
+@if ($errors->has('cin'))
+    <span class="help-block">
+        <strong>{{ $errors->first('cin') }}</strong>
+    </span>
+@endif
+<label for="cin" class="col-md-4 control-label">CIN</label>
+
+      </div>
+
     
       <div class="user-box">
       <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') }}" required autofocus>

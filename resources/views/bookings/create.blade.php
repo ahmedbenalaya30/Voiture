@@ -19,8 +19,13 @@
       <form method="POST" action="{{ route('booking.store') }}" enctype="multipart/form-data" >
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="form-group">
-              <label for="user_id">User:</label>
-              <input type="number" class="form-control" name="user_id"/>
+              <label for="user_id">User:</label>    
+              <select name="user_id" for="uer_id">
+              @foreach(App\User::get() as $user)
+<option value='{{ $user->id }}'  > name : {{ $user->name }} | cin : {{ $user->cin }}</option>
+@endforeach
+              </select>   
+            
           </div>
           <div class="form-group">
               <label for="car_id">Car:</label>

@@ -55,6 +55,7 @@ class UsersController extends Controller
         $user = new User([
         'name' => $request->get('name'),
         'email' => $request->get('email'),
+        'cin' => $request->get('cin'),
         'password' => "Client",
         'adress' => $request->get('adress'),
           'city' => $request->get('city'),
@@ -99,6 +100,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->name= $request->get('name');
             $user->email = $request->get('email');
+            $user->cin = $request->get('cin');
             $user->adress = $request->get('adress');
             $user->city = $request->get('city');
             $user->phone = $request->get('phone');

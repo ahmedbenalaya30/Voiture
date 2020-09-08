@@ -46,6 +46,7 @@ class CarsController extends Controller
         
       
         $car = new Car([
+            'carNumber' => $request->get('carNumber'),
             'category' => $request->get('category'),
             'brand' => $request->get('brand'),
             'model' => $request->get('model'),
@@ -130,7 +131,8 @@ class CarsController extends Controller
         }
         
         $car = Car::find($id);
-        $car->type= $request->get('type');
+        $car->carNumber= $request->get('carNumber');
+        $car->category= $request->get('category');
             $car->brand = $request->get('brand');
             $car->model = $request->get('model');
             $car->color = $request->get('color');

@@ -19,6 +19,10 @@
       <form method="POST" action="{{ route('car.store') }}" enctype="multipart/form-data" >
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
           
+      <div class="form-group">    
+              <label for="carNumber">Car number:</label>
+              <input type="text" class="form-control" name="carNumber"/>
+          </div>
           <div class="form-group">    
               <label for="category">Category:</label>
               <input type="text" class="form-control" name="category"/>

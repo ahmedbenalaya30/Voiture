@@ -29,6 +29,11 @@
             </div>
 
             <div class="form-group">
+                <label for="cin">CIN:</label>
+                <input type="text" class="form-control" name="cin" value={{ $user->cin }} />
+            </div>
+
+            <div class="form-group">
                 <label for="adress">ADRESS:</label>
                 <input type="text" class="form-control" name="adress" value={{ $user->adress }} />
             </div>

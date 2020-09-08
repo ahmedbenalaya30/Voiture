@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     protected $fillable = array(
+        'carNumber',
         'category',
         'brand',
         'model',
@@ -21,6 +22,7 @@ class Car extends Model
         'img'
     );
     public static $rules = array(
+        'carNumber'=>'required|string',
 		'category'=>'required|string',
         'brand'=>'required|min:2',
         'model'=>'required|min:2',

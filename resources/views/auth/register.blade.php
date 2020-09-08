@@ -27,6 +27,19 @@
 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
       </div>
+
+      <div class="user-box">
+      <input id="cin" type="number" class="form-control" name="cin" value="{{ old('cin') }}" required>
+
+@if ($errors->has('cin'))
+    <span class="help-block">
+        <strong>{{ $errors->first('cin') }}</strong>
+    </span>
+@endif
+<label for="cin" class="col-md-4 control-label">CIN</label>
+
+      </div>
+
 <div class="user-box">
 <input id="password" type="password" class="form-control" name="password" required>
 

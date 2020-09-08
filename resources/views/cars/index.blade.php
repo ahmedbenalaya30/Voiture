@@ -11,6 +11,7 @@
     <thead>
         <tr>
           <th>ID</th>
+          <th>CAR NUMBER</th>
           <th>CATEGORY</th>
           <th>BRAND</th>
           <th>MODEL</th>
@@ -31,6 +32,7 @@
         @foreach($cars as $car)
         <tr>
             <td>{{$car->id}}</td>
+            <td>{{$car->carNumber}}</td>
             <td>{{$car->category}} </td>
             <td>{{$car->brand}}</td>
             <td>{{$car->model}}</td>

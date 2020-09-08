@@ -17,6 +17,10 @@
         <form method="post" action="{{ route('car.update', $car->id) }}" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="_method" value="patch" />
+                <div class="form-group">    
+              <label for="carNumber">Car number:</label>
+              <input type="text" class="form-control" name="carNumber" value={{ $car->carNumber }}/>
+          </div>
             <div class="form-group">
 
                 <label for="category">Category:</label>
