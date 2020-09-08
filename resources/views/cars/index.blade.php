@@ -11,10 +11,13 @@
     <thead>
         <tr>
           <th>ID</th>
-          <th>TYPE</th>
+          <th>CATEGORY</th>
           <th>BRAND</th>
           <th>MODEL</th>
           <th>COLOR</th>
+          <th>INSURANCE</th>
+          <th>TECHNICAL VISIT</th>
+          <th>OIL CHANGE</th>
           <th>FUEl</th>
           <th>YEAR</th>
           <th>CAPACITY</th>
@@ -28,10 +31,13 @@
         @foreach($cars as $car)
         <tr>
             <td>{{$car->id}}</td>
-            <td>{{$car->type}} </td>
+            <td>{{$car->category}} </td>
             <td>{{$car->brand}}</td>
             <td>{{$car->model}}</td>
             <td>{{$car->color}}</td>
+            <td>{{$car->insurance}}</td>
+            <td>{{$car->technicalVisit}}</td>
+            <td>{{$car->oilChange}}</td>
             <td>{{$car->fuel}}</td>
             <td>{{$car->year}}</td>
             <td>{{$car->capacity}}</td>

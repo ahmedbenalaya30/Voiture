@@ -15,11 +15,13 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
+            $table->string('category');
             $table->string('brand');
             $table->string('model');
             $table->string('color');
-            $table->date('available_at');
+            $table->date('insurance');
+            $table->date('technicalVisit');
+            $table->date('oilChange');
             $table->string('fuel');
             $table->integer('year');
             $table->string('capacity');

@@ -43,13 +43,16 @@ class CarsController extends Controller
             'img'=>'required',
 
         ]);*/
+        
       
         $car = new Car([
-            'type' => $request->get('type'),
+            'category' => $request->get('category'),
             'brand' => $request->get('brand'),
             'model' => $request->get('model'),
             'color' => $request->get('color'),
-            'available_at' => $request->get('available_at'),
+            'insurance' => $request->get('insurance'),
+            'technicalVisit' => $request->get('technicalVisit'),
+            'oilChange' => $request->get('oilChange'),
             'fuel' => $request->get('fuel'),
             'year' => $request->get('year'),
             'capacity' => $request->get('capacity'),
@@ -125,13 +128,15 @@ class CarsController extends Controller
             $fileName = Str::random(30).'.'.$img->guessClientExtension();
             $img->move(public_path('images'), $fileName);
         }
-   
+        
         $car = Car::find($id);
         $car->type= $request->get('type');
             $car->brand = $request->get('brand');
             $car->model = $request->get('model');
             $car->color = $request->get('color');
-            $car->available_at = $request->get('available_at');
+            $car->insurance = $request->get('insurance');
+            $car->technicalVisit = $request->get('technicalVisit');
+            $car->oilChange = $request->get('oilChange');
             $car->fuel = $request->get('fuel');
             $car->year = $request->get('year');
             $car->capacity = $request->get('capacity');

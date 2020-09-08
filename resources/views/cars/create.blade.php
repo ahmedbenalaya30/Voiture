@@ -18,30 +18,43 @@
     @endif
       <form method="POST" action="{{ route('car.store') }}" enctype="multipart/form-data" >
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          
           <div class="form-group">    
-              <label for="type">type:</label>
-              <input type="text" class="form-control" name="type"/>
+              <label for="category">Category:</label>
+              <input type="text" class="form-control" name="category"/>
           </div>
 
           <div class="form-group">
-              <label for="brand">brand:</label>
+              <label for="brand">Brand:</label>
               <input type="text" class="form-control" name="brand"/>
           </div>
 
           <div class="form-group">
-              <label for="model">model:</label>
+              <label for="model">Model:</label>
               <input type="text" class="form-control" name="model"/>
           </div>
           <div class="form-group">
-              <label for="color">color:</label>
+              <label for="color">Color:</label>
               <input type="text" class="form-control" name="color"/>
           </div>
+
           <div class="form-group">
-              <label for="available_at">available_at:</label>
-              <input type="date" class="form-control" name="available_at"/>
+                <label for="insurance">Insurance:</label>
+                <input type="date" class="form-control" name="insurance"  />
           </div>
+
+            <div class="form-group">
+                <label for="technicalVisit">TechnicalVisit:</label>
+                <input type="date" class="form-control" name="technicalVisit"  />
+            </div>
+
+            <div class="form-group">
+                <label for="oilChange">Oil change:</label>
+                <input type="date" class="form-control" name="oilChange" />
+            </div>
+
           <div class="form-group">
-              <label for="fuel">fuel:</label>
+              <label for="fuel">Fuel:</label>
               <input type="text" class="form-control" name="fuel"/>
           </div> 
         
@@ -51,7 +64,7 @@
               <input type="number" class="form-control" name="year"/>
           </div> 
           <div class="form-group">
-              <label for="capacity">capacity:</label>
+              <label for="capacity">Capacity:</label>
               <input type="text" class="form-control" name="capacity"/>
           </div> 
 

@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     protected $fillable = array(
-        'type',
+        'category',
         'brand',
         'model',
         'color',
-        'available_at',
+        'insurance',
+        'technicalVisit',
+        'oilChange',
         'fuel',
         'year',
         'capacity',
@@ -19,11 +21,13 @@ class Car extends Model
         'img'
     );
     public static $rules = array(
-		'type'=>'required|string',
+		'category'=>'required|string',
         'brand'=>'required|min:2',
         'model'=>'required|min:2',
         'color'=>'required|string',
-        'available_at'=>'date',
+        'insurance'=>'date|date_format:"Y-m-d"',
+        'technicalVisit'=>'date|date_format:"Y-m-d"',
+        'oilChange'=>'date|date_format:"Y-m-d"',
         'fuel'=>'required|string',
         'year'=>'required|integer',
         'capacity'=>'required|string',

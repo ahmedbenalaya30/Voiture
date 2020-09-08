@@ -19,8 +19,8 @@
                 <input type="hidden" name="_method" value="patch" />
             <div class="form-group">
 
-                <label for="first_name">TYPE:</label>
-                <input type="text" class="form-control" name="type" value={{ $car->type }} />
+                <label for="category">Category:</label>
+                <input type="text" class="form-control" name="category" value={{ $car->category }} />
             </div>
 
             <div class="form-group">
@@ -36,9 +36,18 @@
                 <label for="color">COLOR:</label>
                 <input type="text" class="form-control" name="color" value={{ $car->color }} />
             </div>
+           
             <div class="form-group">
-                <label for="available_at">AVAILABLE_AT:</label>
-                <input type="text" class="form-control" name="available_at" value={{ $car->available_at }} />
+                <label for="insurance">INSURANCE:</label>
+                <input type="date" class="form-control" name="insurance" value={{ $car->insurance }} />
+            </div>
+            <div class="form-group">
+                <label for="technicalVisit">TECHNICALVISIT:</label>
+                <input type="date" class="form-control" name="technicalVisit" value={{ $car->technicalVisit }} />
+            </div>
+            <div class="form-group">
+                <label for="oilChange">OIL CHANGE:</label>
+                <input type="date" class="form-control" name="oilChange" value={{ $car->oilChange }} />
             </div>
 
             <div class="form-group">
