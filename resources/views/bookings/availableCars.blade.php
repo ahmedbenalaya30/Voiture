@@ -42,7 +42,8 @@
             <td>{{$car->pricePerDay}}</td>
             <td><img src="{{ URL::to('/') }}/images/{{ $car->img }}" class="img-thumbnail" width="75"  /></td>
             <td>
-               
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book</button>
+</button>
             </td>
            
            
@@ -52,4 +53,63 @@
   </table>
 <div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Booking</h4>
+        </div>
+        <form method="POST" action="{{ route('booking.store') }}" enctype="multipart/form-data" >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <div class="form-group">
+              <label for="user_id">User:</label>    
+              <select name="user_id" for="user_id">
+              @foreach(App\User::get() as $user)
+<option value='{{ $user->id }}'  > name : {{ $user->name }} | cin : {{ $user->cin }}</option>
+@endforeach
+              </select>   
+            
+          </div>
+          <div class="form-group">
+              <label for="car_id">Car:</label>
+              <input type="number" class="form-control" name="car_id"/>
+          </div>
+          <div class="form-group">    
+              <label for="pick_up_date">pick_up_date:</label>
+              <input type="text" class="form-control" name="pick_up_date"  value={{ $pick_up_date }} readonly	/>
+          </div>
+
+          <div class="form-group">
+              <label for="drop_off_date">drop_off_date:</label>
+              <input type="text" class="form-control" name="drop_off_date" value={{ $drop_off_date }} readonly	/>
+          </div>
+
+          <div class="form-group">
+              <label for="status">status:</label>
+              <select name="status" id="status">
+    <option value="Pending">Pending</option>
+    <option value="Cancelled">Cancelled</option>
+    <option value="Pending">Confirmed</option>
+    </select>
+          </div>
+          <div class="form-group">
+              <label for="status">IsPaid:</label>
+              <input type="checkbox" id="isPaid" name="isPaid">
+          </div>
+
+          
+                    
+          <button type="submit" class="btn btn-primary-outline">Add booking</button>
+      </form>        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 @endsection

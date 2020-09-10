@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Booking;
 use App\User;
 use App\Car;
+use Carbon\Carbon;
 use Auth;
 use DB;
 
@@ -21,6 +22,23 @@ class BookingsController extends Controller
     {
         $bookings=Booking::all();
         return view('bookings.index', compact('bookings'));
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function planning()
+    {
+        $bookings=Booking::all();
+        foreach($bookings as $booking)
+        {
+            $booking->drop_off_date=Carbon::parse($booking->drop_off_date)->addDays(1)->format('Y-m-d');
+            //$booking->drop_off_date=$booking->drop_off_date->format('y-m-d');
+
+        }
+        return view('planning', compact('bookings'));
     }
     
     /**
@@ -53,7 +71,7 @@ class BookingsController extends Controller
     $pick_up_date=$request->get('pick_up_date');
     $drop_off_date=$request->get('drop_off_date');
 
-        return view('bookings.availableCars',compact('availables','pick_up_date','drop_off_date=$request'));   
+        return view('bookings.availableCars',compact('availables','pick_up_date','drop_off_date'));   
    // ->whereNotBetween('$request->get("drop_off_date")', ['bookings.pick_up_date','bookings.drop_off_date'] )
        // $search = $request->get('search');
       // $date=strtotime("2020-09-10");

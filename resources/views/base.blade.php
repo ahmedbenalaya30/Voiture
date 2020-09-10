@@ -5,6 +5,7 @@
   <title>Base</title>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="{{URL::asset('assets/css/dataTables.min.css')}}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -16,7 +17,9 @@
   integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
   crossorigin="anonymous"></script>
   <script src="{{ asset('js/app.js') }}" type="text/js"></script>
-  <script src="{!! asset('assets/js/dataTables.min.js') !!}"></script></body>
+  <script src="{!! asset('assets/js/dataTables.min.js') !!}"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
 </html>
 
 <script> $(document).ready( function () {
