@@ -31,6 +31,7 @@ class BookingsController extends Controller
      */
     public function searchCar(Request $request)
     {
+      
     $cars = DB::table('bookings')
     ->select('cars.*')
     ->join('cars', 'cars.id', '=', 'bookings.car_id')
@@ -49,8 +50,10 @@ class BookingsController extends Controller
             $availables[]=$car;
         }
     }
+    $pick_up_date=$request->get('pick_up_date');
+    $drop_off_date=$request->get('drop_off_date');
 
-        return view('bookings.availableCars',compact('availables'));   
+        return view('bookings.availableCars',compact('availables','pick_up_date','drop_off_date=$request'));   
    // ->whereNotBetween('$request->get("drop_off_date")', ['bookings.pick_up_date','bookings.drop_off_date'] )
        // $search = $request->get('search');
       // $date=strtotime("2020-09-10");
