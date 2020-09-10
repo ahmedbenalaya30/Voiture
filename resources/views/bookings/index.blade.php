@@ -26,7 +26,7 @@
         <tr>
             <td>{{$booking->id}}</td>
             <td>{{$booking->user['name']}} </td>
-            <td>{{$booking->car['type']}} | {{$booking->car['brand']}} | {{$booking->car['model']}}</td>
+            <td>{{$booking->car['carNumber']}} | {{$booking->car['brand']}} | {{$booking->car['model']}}</td>
             <td>{{$booking->pick_up_date}}</td>
             <td>{{$booking->drop_off_date}}</td>
             <td>{{$booking->status}}</td>

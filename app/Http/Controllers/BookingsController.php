@@ -7,6 +7,7 @@ use App\Booking;
 use App\User;
 use App\Car;
 use Auth;
+use DB;
 
 
 class BookingsController extends Controller
@@ -20,6 +21,48 @@ class BookingsController extends Controller
     {
         $bookings=Booking::all();
         return view('bookings.index', compact('bookings'));
+    }
+    
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function searchCar(Request $request)
+    {
+    $cars = DB::table('bookings')
+    ->select('cars.*')
+    ->join('cars', 'cars.id', '=', 'bookings.car_id')
+    ->whereBetween('bookings.pick_up_date', [$request->get('pick_up_date'),$request->get('drop_off_date')] )
+    ->orwhereBetween('bookings.drop_off_date', [$request->get('pick_up_date'),$request->get('drop_off_date')] )
+    ->get()->toArray();
+   
+    //$availables = Car::whereNotIn('carNumber', $cars)->get();
+    $list=DB::table('cars')
+    ->select('cars.*')->get();
+    $availables=array();
+    foreach($list as $car)
+    {
+        if (!in_array($car,$cars))
+        {
+            $availables[]=$car;
+        }
+    }
+
+        return view('bookings.availableCars',compact('availables'));   
+   // ->whereNotBetween('$request->get("drop_off_date")', ['bookings.pick_up_date','bookings.drop_off_date'] )
+       // $search = $request->get('search');
+      // $date=strtotime("2020-09-10");
+      /* $cars = DB::table('bookings')
+       ->select('category','carNumber')
+       ->join('cars', 'cars.id', '=', 'bookings.car_id')
+       ->whereBetween('bookings.pick_up_date', [$request->get('pick_up_date'),$request->get('drop_off_date')] )
+       ->orwhereBetween('bookings.drop_off_date', [$request->get('pick_up_date'),$request->get('drop_off_date')] )
+       ->get();
+              return view('bookings.availableCars',compact('cars'));   
+    */
+         
     }
 
   /**
@@ -75,7 +118,6 @@ class BookingsController extends Controller
     protected function create()
     {
         return view('bookings.create');
-
     }
       /**
      * Display the specified resource.
