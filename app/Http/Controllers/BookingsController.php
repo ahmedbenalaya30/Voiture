@@ -193,5 +193,27 @@ public function destroy($id)
         $booking->delete();
         return redirect('/booking')->with('success', 'booking deleted!');
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+public function facture($id)
+{
+    $booking = Booking::find($id);
+    $idcar=$booking->car['id'];
+    $iduser=$booking->user['id'];
+    $user=User::find($iduser);
+    $car=Car::find($idcar);
+    $date1=strtotime($booking->pick_up_date);
+    $date2=strtotime($booking->drop_off_date);
+    $nb=$date2-$date1;
+    $nbDay=$nb/86400+1;
+    $price=$nbDay* $car->pricePerDay;
+    return view('bookings.facture', compact('booking','car','price','user'));
+
+}
      
 }

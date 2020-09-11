@@ -19,6 +19,7 @@
           <th>IS PAID</th>
           <th >EDIT</th>
           <th>DELETE</th>
+          <th>Facture</th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +41,10 @@
             </td>
             <td>
             <a href="{{ route('booking.destroy', $booking->id)}}" class="btn btn-primary">DELETE</a>
+            </td>
+            <td>
+            <a href="{{ route('facture', $booking->id)}}" class="btn btn-primary">show Facture</a>
+            
             </td>
         </tr>
         @endforeach

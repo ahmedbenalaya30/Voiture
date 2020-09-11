@@ -2,6 +2,8 @@
 
 @section('main')
 <div class="row">
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book</button>
+</button>
 <div class="col-sm-12">
     <h1 class="display-3">Cars</h1>
   <table id="carsTable" class="table table-striped">
@@ -20,7 +22,6 @@
           <th>CAPACITY</th>
           <th>PricePerDay</th>
           <th>IMAGE</th>
-          <th>EDIT</th>
          
         </tr>
     </thead>
@@ -41,10 +42,7 @@
             <td>{{$car->capacity}}</td>
             <td>{{$car->pricePerDay}}</td>
             <td><img src="{{ URL::to('/') }}/images/{{ $car->img }}" class="img-thumbnail" width="75"  /></td>
-            <td>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book</button>
-</button>
-            </td>
+            
            
            
         </tr>
@@ -76,7 +74,11 @@
           </div>
           <div class="form-group">
               <label for="car_id">Car:</label>
-              <input type="number" class="form-control" name="car_id"/>
+              <select name="car_id" for="car_id">
+              @foreach( $availables as $car)
+              <option value='{{ $car->id }}'  > carNumber : {{ $car->carNumber }} | brand : {{ $car->brand }} | model : {{$car->model}}</option>
+@endforeach
+</select>
           </div>
           <div class="form-group">    
               <label for="pick_up_date">pick_up_date:</label>
