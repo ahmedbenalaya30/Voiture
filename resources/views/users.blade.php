@@ -35,8 +35,13 @@
             <td>
                 <a href="{{ route('user.edit',$user->id)}}" class="btn btn-primary">Edit</a>
             </td>
-            <td>                <a href="{{ route('user.destroy', $user->id)}}" class="btn btn-primary">Delete</a></td>
-<td><a href="{{ route('search', $user->id)}}" class="btn btn-primary">Show</a></td>
+            <td><form method="POST" action="{{ route('user.destroy', $user->id) }}">
+            {{ csrf_field() }}
+  {{ method_field('DELETE') }}
+           <button type="submit" class="btn btn-danger">Delete</button>
+       </form>
+              </td>
+<td><a href="{{ route('search', $user->id)}}" class="btn btn-info">Show</a></td>
           <!--<td>
                 <form action="{{ route('user.destroy', $user->id)}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

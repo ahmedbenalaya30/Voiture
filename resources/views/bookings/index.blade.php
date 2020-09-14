@@ -40,10 +40,13 @@
                 <a href="{{ route('booking.edit',$booking->id)}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
-            <a href="{{ route('booking.destroy', $booking->id)}}" class="btn btn-primary">DELETE</a>
-            </td>
+            <form method="POST" action="{{ route('booking.destroy', $booking->id) }}">
+            {{ csrf_field() }}
+  {{ method_field('DELETE') }}
+           <button type="submit" class="btn btn-danger">Delete</button>
+       </form>            </td>
             <td>
-            <a href="{{ route('facture', $booking->id)}}" class="btn btn-primary">show Facture</a>
+            <a href="{{ route('facture', $booking->id)}}" class="btn btn-info">show Facture</a>
             
             </td>
         </tr>

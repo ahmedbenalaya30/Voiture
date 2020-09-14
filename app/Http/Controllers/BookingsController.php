@@ -9,6 +9,8 @@ use App\Car;
 use Carbon\Carbon;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 
 class BookingsController extends Controller
@@ -49,7 +51,8 @@ class BookingsController extends Controller
      */
     public function searchCar(Request $request)
     {
-      
+      if ($request->get('pick_up_date') < $request->get('drop_off_date') )
+      {
     $cars = DB::table('bookings')
     ->select('cars.*')
     ->join('cars', 'cars.id', '=', 'bookings.car_id')
@@ -71,7 +74,8 @@ class BookingsController extends Controller
     $pick_up_date=$request->get('pick_up_date');
     $drop_off_date=$request->get('drop_off_date');
 
-        return view('bookings.availableCars',compact('availables','pick_up_date','drop_off_date'));   
+        return view('bookings.availableCars',compact('availables','pick_up_date','drop_off_date'));   }
+        else  return back()->withInput();
    // ->whereNotBetween('$request->get("drop_off_date")', ['bookings.pick_up_date','bookings.drop_off_date'] )
        // $search = $request->get('search');
       // $date=strtotime("2020-09-10");
@@ -107,8 +111,8 @@ class BookingsController extends Controller
             'img'=>'required',
 
         ]);*/
-        if ($request->get('pick_up_date') < $request->get('drop_off_date'))
-        {
+    //    if ($request->get('pick_up_date') < $request->get('drop_off_date'))
+       // {
         $car=new Car;
         $car= Car::find($request->get('car_id'));
         $user=new User;
@@ -119,15 +123,31 @@ class BookingsController extends Controller
             'drop_off_date' => $request->get('drop_off_date'),
             'status' => $request->get('status'),
         ]);
+        // champs isPaid
         if (isset($_POST['isPaid']))
             $booking->is_paid=true;
 
         $booking->user()->associate($user);
         $booking->car()->associate($car);
         $booking->save();
-        return redirect('/booking')->with('success', 'booking saved!');}
-        else 
-        return back()->withErrors(['Verify the date']);
+        //the price
+        $date1=strtotime($request->get('pick_up_date'));
+        $date2=strtotime($request->get('drop_off_date'));
+        $nb=$date2-$date1;
+        $nbDay=$nb/86400+1;
+        $price=$nbDay* $car->pricePerDay;
+        //data for the mail
+$data=array('name'=> $user->name,'pick_up_date' => $request->get('pick_up_date'),
+'drop_off_date' => $request->get('drop_off_date'),'car'=>$car,'price'=>$price
+        );
+    
+            Mail::to($user->email)->send(new SendMail(array('name'=> $user->name,'pick_up_date' => $request->get('pick_up_date'),
+            'drop_off_date' => $request->get('drop_off_date'),'car'=>$car,'price'=>$price
+                    )));
+        return redirect('/booking')->with('success', 'booking saved!');
+    
+        //else 
+        //return back()->withErrors(['Verify the date']);
 
 
     }
