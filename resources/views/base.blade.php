@@ -31,3 +31,6 @@
 <script> $(document).ready( function () {
     $('#bookingsTable').DataTable();
 } ); </script>
+<script> $(document).ready( function () {
+    $('#partsTable').DataTable();
+} ); </script>

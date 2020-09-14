@@ -21,10 +21,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('car', 'CarsController');
 Route::resource('user','UsersController');
 Route::resource('booking', 'bookingsController');
+Route::resource('part','PartsController');
 Route::any('/userBookings/{id}','UsersController@search')->name('search');
 Route::any('/availableCars','BookingsController@searchCar')->name('searchCar');
 Route::any('/planning','BookingsController@planning')->name('planning');
 Route::any('/facture/{id}','BookingsController@facture')->name('facture');
+Route::any('/part/{id}','PartsController@plus')->name('plus');
+Route::any('/part1/{id}','PartsController@moins')->name('moins');
+
 
 
 

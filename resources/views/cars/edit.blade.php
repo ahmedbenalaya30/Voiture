@@ -19,31 +19,31 @@
                 <input type="hidden" name="_method" value="patch" />
                 <div class="form-group">    
               <label for="carNumber">Car number:</label>
-              <input type="text" class="form-control" name="carNumber" value={{ $car->carNumber }}/>
+              <input type="text" class="form-control" name="carNumber" value={{ $car->carNumber }} />
           </div>
             <div class="form-group">
 
                 <label for="category">Category:</label>
-                <input type="text" class="form-control" name="category" value={{ $car->category }} />
+                <input type="text" class="form-control" name="category" value="{{ $car->category }}" />
             </div>
 
             <div class="form-group">
                 <label for="brand">BRAND:</label>
-                <input type="text" class="form-control" name="brand" value={{ $car->brand }} />
+                <input type="text" class="form-control" name="brand" value="{{ $car->brand }}" />
             </div>
 
             <div class="form-group">
                 <label for="model">MODEL:</label>
-                <input type="text" class="form-control" name="model" value={{ $car->model }} />
+                <input type="text" class="form-control" name="model" value="{{ $car->model }}" />
             </div>
             <div class="form-group">
                 <label for="color">COLOR:</label>
-                <input type="text" class="form-control" name="color" value={{ $car->color }} />
+                <input type="text" class="form-control" name="color" value="{{ $car->color }}" />
             </div>
            
             <div class="form-group">
                 <label for="insurance">INSURANCE:</label>
-                <input type="date" class="form-control" name="insurance" value={{ $car->insurance }} />
+                <input type="date" class="form-control" name="insurance" value="{{ $car->insurance }}" />
             </div>
             <div class="form-group">
                 <label for="technicalVisit">TECHNICALVISIT:</label>
@@ -64,11 +64,11 @@
             </div>
             <div class="form-group">
                 <label for="capacity">CAPACITY:</label>
-                <input type="text" class="form-control" name="capacity" value={{ $car->capacity }} />
+                <input type="text" class="form-control" name="capacity" value="{{ $car->capacity }}" />
             </div>
             <div class="form-group">
                 <label for="pricePerDay">PRICE_PER_DAY:</label>
-                <input type="text" class="form-control" name="pricePerDay" value={{ $car->pricePerDay }} />
+                <input type="text" class="form-control" name="pricePerDay" value="{{ $car->pricePerDay }}" />
             </div>
             <div class="form-group">
                 <label for="img">IMAGE:</label>
