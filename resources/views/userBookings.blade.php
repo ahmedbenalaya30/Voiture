@@ -1,10 +1,11 @@
 @extends('base')
+
 @section('main')
 <div class="row">
-
 <div class="col-sm-12">
-    <h1 class="display-3">users</h1>
-<table id="carsTable" class="display">
+    <h1 class="display-3">Cars</h1>
+  <table id="bookingsTable"class="table table-striped">
+    <thead>
         <tr>
           <th>ID</th>
           <th>USER Name</th>
@@ -15,14 +16,15 @@
           <th>IS PAID</th>
           <th >EDIT</th>
           <th>DELETE</th>
-          <th>FACTURE</th>
+          <th>Facture</th>
         </tr>
-    
+    </thead>
+    <tbody>
         @foreach($bookings as $booking)
         <tr>
             <td>{{$booking->id}}</td>
             <td>{{$booking->user['name']}} </td>
-            <td>{{$booking->car['type']}} | {{$booking->car['brand']}} | {{$booking->car['model']}}</td>
+            <td>{{$booking->car['carNumber']}} | {{$booking->car['brand']}} | {{$booking->car['model']}}</td>
             <td>{{$booking->pick_up_date}}</td>
             <td>{{$booking->drop_off_date}}</td>
             <td>{{$booking->status}}</td>
@@ -39,12 +41,14 @@
             {{ csrf_field() }}
   {{ method_field('DELETE') }}
            <button type="submit" class="btn btn-danger">Delete</button>
-       </form>                        </td>
+       </form>            </td>
             <td>
             <a href="{{ route('facture', $booking->id)}}" class="btn btn-info">show Facture</a>
+            
             </td>
         </tr>
         @endforeach
+    </tbody>
   </table>
 <div>
 </div>

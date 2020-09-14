@@ -8,7 +8,7 @@
             <table style="text-align:center">
             <tr>
             <td><img src="{{ URL::to('/') }}/img/logo.jpg" alt="Logo" width="110" height="110"></td>
-            <td><h3>Contrat de Location de voiture</h3></td>
+            <td><h3>Facture de location de voiture</h3></td>
             </tr>
             </table>
                 <form method="get" action="" style="width:70%; margin-left:15%;">
