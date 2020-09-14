@@ -16,7 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-         $users=User::all();
+         $users=User::where('contentious',0)->get();
         return view('users', compact('users'));
     }
 
@@ -119,5 +119,42 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect('/user')->with('success', 'user deleted!');
+    }
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function block( $id)
+    {
+        $user = User::find($id);
+            $user->contentious = true;
+            $user->save();
+            return redirect('/user')->with('success', 'User saved!');
+        }
+        /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function disblock( $id)
+    {
+        $user = User::find($id);
+            $user->contentious = false;
+            $user->save();
+            return redirect('/userBanned')->with('success', 'User saved!');
+        }
+
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function userBanned()
+    {
+         $users=User::where('contentious',1)->get();
+        return view('userBanned', compact('users'));
     }
 }

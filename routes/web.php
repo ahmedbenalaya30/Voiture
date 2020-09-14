@@ -28,6 +28,13 @@ Route::any('/planning','BookingsController@planning')->name('planning');
 Route::any('/facture/{id}','BookingsController@facture')->name('facture');
 Route::any('/part/{id}','PartsController@plus')->name('plus');
 Route::any('/part1/{id}','PartsController@moins')->name('moins');
+Route::any('/user/{id}','UsersController@block')->name('block');
+Route::any('/user1/{id}','UsersController@disblock')->name('disblock');
+Route::any('/userBanned','UsersController@userBanned')->name('userBanned');
+
+
+
+
 
 
 

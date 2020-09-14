@@ -15,7 +15,7 @@
           <th>DESCRIPTION</th>
          <th>NUMBER</th>
          <th>ADD</th>
-         <th>Substract<th>
+         <th>Use<th>
          <th>Edit<th>
         </tr>
     </thead>

@@ -1,13 +1,11 @@
 @extends('base')
 @section('main')
 <div class="row">
-<div>
-    <a style="margin: 19px;" href="{{ route('user.create')}}" class="btn btn-primary">New user</a>
-    </div>  
+
 <div class="col-sm-12">
     <h1 class="display-3">users</h1>
     
-  <table id="myTable" class="display"> 
+  <table id="myTable1" class="display"> 
     <thead>
         <tr>
           <th>ID</th>
@@ -43,9 +41,9 @@
        </form>
               </td>
 <td><a href="{{ route('search', $user->id)}}" class="btn btn-info">Show</a></td>
-<td><form method="POST" action="{{ route('block',$user->id)}}">
+<td><form method="POST" action="{{ route('disblock',$user->id)}}">
             {{ csrf_field() }}
-           <button type="submit" class="btn btn-primary">block</button>
+           <button type="submit" class="btn btn-primary">disblock</button>
        </form></td>
           <!--<td>
                 <form action="{{ route('user.destroy', $user->id)}}" method="post">

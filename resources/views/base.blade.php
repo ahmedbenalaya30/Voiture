@@ -25,12 +25,19 @@
 <script> $(document).ready( function () {
     $('#myTable').DataTable();
 } ); </script>
+
+<script> $(document).ready( function () {
+    $('#myTable1').DataTable();
+} ); </script>
+
 <script> $(document).ready( function () {
     $('#carsTable').DataTable();
 } ); </script>
+
 <script> $(document).ready( function () {
     $('#bookingsTable').DataTable();
 } ); </script>
+
 <script> $(document).ready( function () {
     $('#partsTable').DataTable();
 } ); </script>
