@@ -43,7 +43,7 @@
 <td><a href="{{ route('search', $user->id)}}" class="btn btn-info">Show</a></td>
 <td><form method="POST" action="{{ route('disblock',$user->id)}}">
             {{ csrf_field() }}
-           <button type="submit" class="btn btn-primary">disblock</button>
+           <button type="submit" class="btn btn-primary">unblock</button>
        </form></td>
           <!--<td>
                 <form action="{{ route('user.destroy', $user->id)}}" method="post">

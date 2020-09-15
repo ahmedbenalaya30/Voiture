@@ -2,8 +2,6 @@
 
 @section('main')
 <div>
-    <a style="margin: 19px;" href="{{ route('booking.create')}}" class="btn btn-primary">New Booking</a>
-    </div>  
 <div class="row">
 <div class="col-sm-12">
     <h1 class="display-3">Cars</h1>
@@ -26,7 +24,7 @@
         @foreach($bookings as $booking)
         <tr>
             <td>{{$booking->id}}</td>
-            <td>{{$booking->user['name']}} : {{$booking->user['cin']}} </td>
+            <td>{{$booking->user['name']}} : {{$booking->user['cin']}}</td>
             <td>{{$booking->car['carNumber']}} | {{$booking->car['brand']}} | {{$booking->car['model']}}</td>
             <td>{{$booking->pick_up_date}}</td>
             <td>{{$booking->drop_off_date}}</td>

@@ -8,7 +8,7 @@
     <thead>
         <tr>
           <th>ID</th>
-          <th>USER Name</th>
+          <th>USER </th>
           <th>CAR</th>
           <th>PICK_UP_DATE</th>
           <th>DROP_OFF_DATE</th>
@@ -23,7 +23,7 @@
         @foreach($bookings as $booking)
         <tr>
             <td>{{$booking->id}}</td>
-            <td>{{$booking->user['name']}} </td>
+            <td>{{$booking->user['name']}} : {{$booking->user['cin']}} </td>
             <td>{{$booking->car['carNumber']}} | {{$booking->car['brand']}} | {{$booking->car['model']}}</td>
             <td>{{$booking->pick_up_date}}</td>
             <td>{{$booking->drop_off_date}}</td>
@@ -31,7 +31,10 @@
             @if ($booking->is_paid)
             <td>Yes</td>
             @else
-            <td>No</td>
+            <td><form method="POST" action="{{ route('paid',$booking->id)}}">
+            {{ csrf_field() }}
+           <button type="submit" class="btn .btn-warning">pay</button>
+       </form></td>
             @endif
             <td>
                 <a href="{{ route('booking.edit',$booking->id)}}" class="btn btn-primary">Edit</a>

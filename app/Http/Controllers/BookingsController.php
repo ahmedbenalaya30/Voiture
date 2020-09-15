@@ -235,5 +235,41 @@ public function facture($id)
     return view('bookings.facture', compact('booking','car','price','user'));
 
 }
+
+ /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function paid( $id)
+    {
+        $booking = Booking::find($id);
+            $booking->is_paid = true;
+            $booking->status="Confirmed";
+            $booking->save();
+            return redirect('/booking')->with('success', 'Booking saved!');
+        }
+
+         /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function paidBookings()
+    {
+        $bookings=Booking::where('is_paid',1)->get();
+        return view('bookings.paidBooking', compact('bookings'));
+    }
+         /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function unpaidBookings()
+    {
+        $bookings=Booking::where('is_paid',0)->get();
+        return view('bookings.paidBooking', compact('bookings'));
+    }
      
 }

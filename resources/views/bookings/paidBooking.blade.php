@@ -11,7 +11,7 @@
     <thead>
         <tr>
           <th>ID</th>
-          <th>USER</th>
+          <th>USER </th>
           <th>CAR</th>
           <th>PICK_UP_DATE</th>
           <th>DROP_OFF_DATE</th>
