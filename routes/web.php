@@ -22,6 +22,7 @@ Route::resource('car', 'CarsController');
 Route::resource('user','UsersController');
 Route::resource('booking', 'bookingsController');
 Route::resource('part','PartsController');
+Route::resource('category','CategorysController');
 Route::any('/userBookings/{id}','UsersController@search')->name('search');
 Route::any('/availableCars','BookingsController@searchCar')->name('searchCar');
 Route::any('/planning','BookingsController@planning')->name('planning');

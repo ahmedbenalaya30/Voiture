@@ -3,7 +3,7 @@
 @section('main')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-    <h1 class="display-3">Add a car</h1>
+    <h1 class="display-3">Add a category</h1>
   <div>
   
 
@@ -16,16 +16,20 @@
         </ul>
       </div><br />
     @endif
-      <form method="POST" action="{{ route('car.store') }}" enctype="multipart/form-data" >
+      <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data" >
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
           
       <div class="form-group">    
-              <label for="carNumber">Car number:</label>
-              <input type="text" class="form-control" name="carNumber"/>
+              <label for="categoryNumber">Car number:</label>
+              <input type="text" class="form-control" name="categoryNumber"/>
           </div>
           <div class="form-group">    
               <label for="category">Category:</label>
-              <input type="text" class="form-control" name="category"/>
+              <select name="category" for="category">
+              @foreach( $categorys as $category)
+              <option value='{{ $category->name }}'  > category : {{ $category->name }} : {{ $category->description }}</option>
+@endforeach
+</select>
           </div>
 
           <div class="form-group">

@@ -44,3 +44,7 @@
 <script> $(document).ready( function () {
     $('#partsTable').DataTable();
 } ); </script>
+<script> $(document).ready( function () {
+    $('#categorysTable').DataTable();
+} ); </script>
+

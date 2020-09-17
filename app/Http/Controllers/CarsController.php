@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Car;
+use App\Category;
+
 
 class CarsController extends Controller
 {
@@ -74,7 +76,8 @@ class CarsController extends Controller
      */
     protected function create()
     {
-        return view('cars.create');
+        $categorys=Category::all();
+        return view('cars.create',compact('categorys'));
 
     }
       /**
