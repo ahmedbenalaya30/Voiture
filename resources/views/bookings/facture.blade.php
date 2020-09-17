@@ -3,7 +3,9 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <br><br>
-
+    <div>
+<a  class="printPage" href="#">Print</a>
+</div>
     <section class="content">
             <table style="text-align:center">
             <tr>
@@ -62,8 +64,9 @@
                       </div>
                       <div class="card-footer text-muted" style="text-align:center">
                          
-                            <button style="cursor:pointer" type="submit" class="btn btn-primary">Imprimer</button>
-                          
+                            <button  type="submit"><a  class="printPage" href="#">Print</a>
+</button>
+
                       </div>
                     </div> 
                 </form>

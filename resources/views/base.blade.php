@@ -16,6 +16,7 @@
   src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
   integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
   crossorigin="anonymous"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="{{ asset('js/app.js') }}" type="text/js"></script>
   <script src="{!! asset('assets/js/dataTables.min.js') !!}"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -48,3 +49,8 @@
     $('#categorysTable').DataTable();
 } ); </script>
 
+<script> 
+$('a.printPage').click(function(){
+           window.print();
+           return false;
+});</script>
