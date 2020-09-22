@@ -3,9 +3,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <br><br>
-    <div>
-<a  class="printPage" href="#">Print</a>
-</div>
+    
     <section class="content">
             <table style="text-align:center">
             <tr>
@@ -63,16 +61,12 @@
                         </table>
                       </div>
                       <div class="card-footer text-muted" style="text-align:center">
-                         
                             <button  type="submit"><a  class="printPage" href="#">Print</a>
 </button>
-
                       </div>
                     </div> 
                 </form>
                 
     </section>
     </div>
-
-
 @endsection

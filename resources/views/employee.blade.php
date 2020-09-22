@@ -1,11 +1,15 @@
 @extends('base')
 @extends('layouts.admin')
 @section('content')
+
 <div class="row">
+<div>
+<a href="{{ url('/register') }}">Register</a>
+    </div>  
 <div class="col-sm-12">
-    <h1 class="display-3">users</h1>
+    <h1 class="display-3">Employee</h1>
     
-  <table id="myTable1" class="display"> 
+  <table id="myTable" class="display"> 
     <thead>
         <tr>
           <th>ID</th>
@@ -15,10 +19,9 @@
           <th>ADRESS</th>
           <th>CITY</th>
           <th>PHONE</th>
+          <th>Role</th>
           <th>EDIT</th>
           <th >DELETE</th>
-          <th>Show bookings</th>
-          <th>Block</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +34,7 @@
             <td>{{$user->adress}}</td>
             <td>{{$user->city}}</td>
             <td>{{$user->phone}}</td>
+            <td>{{$user->role}}</td>
             <td>
                 <a href="{{ route('user.edit',$user->id)}}" class="btn btn-primary">Edit</a>
             </td>
@@ -39,12 +43,7 @@
   {{ method_field('DELETE') }}
            <button type="submit" class="btn btn-danger">Delete</button>
        </form>
-              </td>
-<td><a href="{{ route('search', $user->id)}}" class="btn btn-info">Show</a></td>
-<td><form method="POST" action="{{ route('disblock',$user->id)}}">
-            {{ csrf_field() }}
-           <button type="submit" class="btn btn-primary">unblock</button>
-       </form></td>
+              
           <!--<td>
                 <form action="{{ route('user.destroy', $user->id)}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
