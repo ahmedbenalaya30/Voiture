@@ -630,7 +630,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-circle"></i>
               <p>
-                Level 1
+                Level 2
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
