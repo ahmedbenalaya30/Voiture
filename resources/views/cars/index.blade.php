@@ -1,6 +1,6 @@
 @extends('base')
-
-@section('main')
+@extends('layouts.admin')
+@section('content')
 <div>
     <a style="margin: 19px;" href="{{ route('car.create')}}" class="btn btn-primary">New car</a>
     </div>  

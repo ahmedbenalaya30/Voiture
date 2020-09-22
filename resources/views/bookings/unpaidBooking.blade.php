@@ -1,6 +1,6 @@
 @extends('base')
-
-@section('main')
+@extends('layouts.admin')
+@section('content')
 <div>
 <div class="row">
 <div class="col-sm-12">
