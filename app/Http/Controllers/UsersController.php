@@ -16,7 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-         $users=User::where('contentious',0)->get();
+         $users=User::where('contentious',0)->where('role','client')->get();
         return view('users', compact('users'));
     }
 
@@ -156,5 +156,16 @@ class UsersController extends Controller
     {
          $users=User::where('contentious',1)->get();
         return view('userBanned', compact('users'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function Employee()
+    {
+         $users=User::where('role','employee')->get();
+        return view('employee', compact('users'));
     }
 }

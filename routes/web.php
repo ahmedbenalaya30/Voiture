@@ -35,6 +35,7 @@ Route::any('/part1/{id}','PartsController@moins')->name('moins');
 Route::any('/user/{id}','UsersController@block')->name('block');
 Route::any('/user1/{id}','UsersController@disblock')->name('disblock');
 Route::any('/userBanned','UsersController@userBanned')->name('userBanned');
+Route::any('/employee','UsersController@employee')->name('employee');
 
 
 

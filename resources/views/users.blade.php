@@ -1,6 +1,7 @@
 @extends('base')
 @extends('layouts.admin')
 @section('content')
+
 <div class="row">
 <div>
     <a style="margin: 19px;" href="{{ route('user.create')}}" class="btn btn-primary">New Client</a>

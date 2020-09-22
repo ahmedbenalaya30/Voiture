@@ -114,13 +114,31 @@
             </a>
            
           </li>
-          <li class="nav-item">
-            <a href="/user" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
               <p>
                 Client
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All client</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('userBanned')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Black list</p>
+                </a>
+              </li>
+             
+              
+            </ul>
           </li>
           <li class="nav-item">
             <a href="/car" class="nav-link">
@@ -191,26 +209,18 @@
             </a>
           </li>
         
-             
+             @if (Auth::user()->role=="admin")
           <li class="nav-header">Admin</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="{{route('employee')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
+                Gérer les utilisateurs
               </p>
             </a>
           </li>
          
+         @endif
          
          
          

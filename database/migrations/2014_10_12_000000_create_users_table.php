@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->integer('phone');
             $table->boolean('contentious')->default(0);
+            $table->string('role')->default("client");
             $table->rememberToken();
             $table->timestamps();
         });
