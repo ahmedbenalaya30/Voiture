@@ -227,7 +227,7 @@
             <a href="{{route('employee')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Level 2
+                list of employee
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

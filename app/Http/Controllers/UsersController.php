@@ -105,7 +105,14 @@ class UsersController extends Controller
             $user->city = $request->get('city');
             $user->phone = $request->get('phone');
             $user->save();
+            if($user->role=="employee")
+            return redirect('/employee')->with('success', 'user updated!');
+          else {
+           if($user->contentious==false)
             return redirect('/user')->with('success', 'user updated!');
+            else 
+            return redirect('/userBanned')->with('success', 'user updated!');}
+
     }
 
     /**
