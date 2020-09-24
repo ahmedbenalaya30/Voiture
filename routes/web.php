@@ -23,6 +23,7 @@ Route::resource('user','UsersController');
 Route::resource('booking', 'bookingsController');
 Route::resource('part','PartsController');
 Route::resource('category','CategorysController');
+
 Route::any('/userBookings/{id}','UsersController@search')->name('search');
 Route::any('/availableCars','BookingsController@searchCar')->name('searchCar');
 Route::any('/planning','BookingsController@planning')->name('planning');
@@ -36,6 +37,7 @@ Route::any('/user/{id}','UsersController@block')->name('block');
 Route::any('/user1/{id}','UsersController@disblock')->name('disblock');
 Route::any('/userBanned','UsersController@userBanned')->name('userBanned');
 Route::any('/employee','UsersController@employee')->name('employee');
+
 
 
 

@@ -140,10 +140,11 @@ class BookingsController extends Controller
 $data=array('name'=> $user->name,'pick_up_date' => $request->get('pick_up_date'),
 'drop_off_date' => $request->get('drop_off_date'),'car'=>$car,'price'=>$price
         );
-    
+   
             Mail::to($user->email)->send(new SendMail(array('name'=> $user->name,'pick_up_date' => $request->get('pick_up_date'),
             'drop_off_date' => $request->get('drop_off_date'),'car'=>$car,'price'=>$price
                     )));
+                   
         return redirect('/booking')->with('success', 'booking saved!');
     
         //else 

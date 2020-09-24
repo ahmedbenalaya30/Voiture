@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Booking;
+use Carbon\Carbon;
 
 
 class HomeController extends Controller
@@ -32,6 +33,17 @@ class HomeController extends Controller
         $paid=Booking::where('is_paid',1)->count();
         if($bookings!=0)
         $paid=($paid/$bookings)*100;
-            return view('home',compact('cars','bookings','clients','paid'));
+        $cars1= DB::table('cars')->get();
+        $today = Carbon::today()->format('Y-m-d');
+        $notifications=array();
+
+        foreach($cars1 as $car)
+        {
+            if($car->insurance>$today)
+            $notifications[]="Assurance expiré".$car->insurance."pour la voiture".$car->carNumber."";
+
+        }
+            return view('home',compact('cars','bookings','clients','paid','notifications'));
     }
+        
 }

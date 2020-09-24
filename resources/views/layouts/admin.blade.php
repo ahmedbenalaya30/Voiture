@@ -54,16 +54,28 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-warning navbar-badge">{{$nbNotif}}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <span class="dropdown-item dropdown-header">{{$nbNotif}} Notifications</span>
           <div class="dropdown-divider"></div>
+         @if (!empty($notificationsInsurance))
+          <span class="dropdown-item dropdown-header">Insurance</span>
+          @endif
+
+          @foreach ($notificationsInsurance as $notif)
           <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 3 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+            <i class="fas fa-envelope mr-5"></i> <FONT size="0.8pt">{{$notif}} </FONT>
           </a>
-         
+         @endforeach
+         @if (!empty($notificationsTechnicalVisit))
+          <span class="dropdown-item dropdown-header">Technical Visit</span>
+          @endif
+         @foreach ($notificationsTechnicalVisit as $notif)
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-5"></i> <FONT size="0.8pt">{{$notif}} </FONT>
+          </a>
+         @endforeach
           
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>

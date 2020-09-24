@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Car;
 use App\Category;
+use DB;
+use Carbon\Carbon;
+
 
 
 class CarsController extends Controller
@@ -21,7 +24,17 @@ class CarsController extends Controller
     public function index()
     {
         $cars=Car::all();
-        return view('cars.index', compact('cars'));
+        $cars1= DB::table('cars')->get();
+        $today = Carbon::today()->format('Y-m-d');
+        $notifications=array();
+
+        foreach($cars1 as $car)
+        {
+            if($car->insurance>$today)
+            $notifications[]="insurance expired".$car->insurance." for ".$car->carNumber."";
+
+        }
+        return view('cars.index', compact('cars','notifications'));
     }
 
   /**
