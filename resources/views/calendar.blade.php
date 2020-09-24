@@ -1,5 +1,3 @@
-@extends('layouts.admin')
-@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,23 +37,17 @@
 <style>
 
   body {
-    margin: 40px 10px;
-    padding: 0;
+    
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-size: 14px;
   }
 
   #calendar {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 2px auto;
   }
 
 </style>
 </head>
-<body>
 
-  <div id='calendar'></div>
-
-</body>
 </html>
-@endsection
