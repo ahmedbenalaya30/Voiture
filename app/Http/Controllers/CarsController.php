@@ -16,6 +16,15 @@ use Carbon\Carbon;
 
 class CarsController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('notConnected');
+    }
     /**
      * Display a listing of the resource.
      *

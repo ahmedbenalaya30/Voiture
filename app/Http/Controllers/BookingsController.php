@@ -16,6 +16,15 @@ use App\Mail\SendMail;
 class BookingsController extends Controller
 {
      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('notConnected');
+    }
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
