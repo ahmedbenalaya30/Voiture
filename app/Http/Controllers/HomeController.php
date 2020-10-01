@@ -30,8 +30,9 @@ class HomeController extends Controller
     {
         $cars= DB::table('cars')->count();
         $bookings=DB::table('bookings')->count();
-        $clients=DB::table('users')->where('role','client')->count();
+        $allclients=DB::table('users')->where('role','client')->count();
         $banned=DB::table('users')->where('role','client')->where('contentious',1)->count();
+        $clients=DB::table('users')->where('role','client')->where('contentious',0)->count();
         $paid=Booking::where('is_paid',1)->count();
         if($bookings!=0)
         $paid=(number_format($paid/$bookings, 4))*100;
@@ -71,7 +72,7 @@ class HomeController extends Controller
             $notifications[]="Assurance expiré".$car->insurance."pour la voiture".$car->carNumber."";
 
         }
-            return view('home',compact('cars','bookings','clients','banned','paid','unpaid','notifications','sommePaye','sommeNonPaye'));
+            return view('home',compact('cars','bookings','allclients','clients','banned','paid','unpaid','notifications','sommePaye','sommeNonPaye'));
     }
         
 }
