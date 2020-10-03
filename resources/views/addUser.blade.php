@@ -3,7 +3,7 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
   <div class="login-box">
-    <h2>Register</h2>
+    <h2>Add User</h2>
     <form method="POST" action="{{ route('user.store') }}">
       {{ csrf_field() }}
       <div class="user-box">
@@ -77,7 +77,7 @@
         <span></span>
         <span></span>
         <span></span>
-        <input type="submit" value="Sign up" class="save"/> 
+        <input type="submit" value="Add" class="save"/> 
       </a>
     </form>
   </div>

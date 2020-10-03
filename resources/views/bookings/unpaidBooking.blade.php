@@ -4,7 +4,7 @@
 <div>
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">Cars</h1>
+    <h1 class="display-3">unpaid reservation</h1>
   <table id="bookingsTable"class="table table-striped">
     <thead>
         <tr>

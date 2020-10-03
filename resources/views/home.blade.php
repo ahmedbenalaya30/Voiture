@@ -127,10 +127,8 @@ $returningVisitorsDataPoints = array(
  
  $dataPoints1 = array( 
    array("label"=>"paid", "y"=>$sommePaye),
-   array("label"=>"unpaid", "y"=>$sommeNonPaye),
-  
+   array("label"=>"unpaid", "y"=>$sommeNonPaye), 
  )
-  
  ?>
 window.onload = function () {
  

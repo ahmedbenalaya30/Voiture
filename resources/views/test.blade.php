@@ -95,7 +95,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="inner-content">
-              <p>Copyright © 2020 Agence ENSI - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
+              <p>Copyright © 2020 Agence ENSI </p>
             </div>
           </div>
         </div>
